@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "lrtk-skills",
+  "owner": {
+    "name": "LRTK-CODER"
+  },
+  "plugins": [
+    {
+      "name": "lrtk-writing",
+      "source": "./plugins/lrtk-writing",
+      "description": "남에게 보여 줄 글을 쓰고 다듬는 스킬"
+    }
+  ]
+}
