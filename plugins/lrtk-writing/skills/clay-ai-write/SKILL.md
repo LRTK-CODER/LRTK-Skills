@@ -1,49 +1,74 @@
 ---
 name: clay-ai-write
-description: Use when 사용자가 다른 사람이 읽을 글을 써 달라거나, 늘려 달라거나, 다듬어 달라고 할 때. 설계 문서, 제안서, 도입 검토, 상태 보고, 회고, 공지, PR·이슈 본문, 슬랙·메일 메시지가 해당한다. "써 줘", "정리해 줘", "다듬어 줘", "문서로 만들어 줘", "팀에 공유할", "리뷰용" 같은 요청.
+description: Use when the user asks for text that other people will read to be written, expanded, or polished, such as design docs, proposals, adoption reviews, status updates, retrospectives, announcements, PR or issue descriptions, and Slack or email messages. Also applies to Korean requests like "써 줘", "정리해 줘", "다듬어 줘", "문서로 만들어 줘", "팀에 공유할", "리뷰용".
 ---
 
-# Clay AI 글쓰기 원칙
+# Clay AI Writing Policy
 
-출처: Clay의 AI Writing Policy. 원문은 AI로 글을 쓰는 사람에게 하는 말이다. 이 스킬은 그 원칙을 Claude의 행동으로 옮긴 것이다.
+Source: Clay's "AI Writing Policy" (2026), restated here. The policy speaks to people who use AI to write. "Applying the policy" below turns it into Claude's behavior.
 
-글은 사용자의 생각을 다른 사람에게 전하는 수단이다. 결과물에 담긴 주장과 결정은 모두 사용자의 것이어야 한다. 리뷰에서 "이 줄은 무슨 뜻이에요?"라는 질문을 받았을 때 사용자가 답할 수 있어야 한다.
+## The policy
 
-## 요청에 따라 할 일
+Good writing carries ideas clearly from the author's mind to someone else's. As of 2026, unedited AI output does not achieve this. The author must make sure that every idea in the text is one they personally intend to convey. That includes the structure and wording that decide which ideas are emphasized. The author must also make sure the document is a good use of the readers' time.
 
-| 요청 | 할 일 |
+AI tools may be used for brainstorming, drafting, and proofreading under these principles:
+
+1. **Stand behind every idea and every sentence.** Before sharing, the author makes sure the whole document represents their own thoughts. When a reviewer asks "What did you mean by this line?", "AI wrote that, just ignore it" is not an acceptable answer. Content that does not represent the author's thoughts wastes readers' time and confuses them. Some readers will notice the parts that don't fit and call them out. Others will be misled about what the author actually thinks.
+2. **Writing is thinking.** Deciding what to emphasize and how to structure ideas is how the author learns the topic. Skipping that process leaves a poorer understanding. Specs, status updates, and retrospectives often serve as "proof of thought". The goal is detailed thinking about the problem, not the artifact itself. Handing the document to AI to skip the thinking defeats that purpose. Even when AI helps think a problem through, the author understands it better after reviewing the result thoroughly.
+3. **Spend more time authoring a document than readers spend consuming it.** Generating a long document from a short prompt and asking readers to go through it disrespects their time. They can ask an AI themselves. One person writes and many people read, so every extra minute a reader spends working out the meaning multiplies across the team. Time the author spends making the text clear and concise is a one-time cost that every reader benefits from.
+4. **Longer is not better.** Pascal wrote, "I have made this longer than usual because I have not had time to make it shorter." AI makes long documents easy to produce, and it tends to fill them with sentences that say little and distract from the content. If a short prompt would become a longer piece of writing, consider sharing the prompt instead. Editing with AI without lengthening carries less risk of empty sentences, but the meaning can still get obscured.
+
+   No rewrite of natural-language text is lossless. Every rewrite or rephrase changes the meaning. When the rewriter lacks the author's detailed picture of what they meant, information is lost. Readers value hearing the author's own thoughts, even at the cost of supposed polish.
+
+AI output that does not meet these standards may still be quoted verbatim if it is clearly marked as AI-generated. For example: "Claude offered this idea. Do you think it's worth looking into?"
+
+As AI improves at theory of mind and writing, it may make sense to rely on it more, but these principles remain important.
+
+## Applying the policy
+
+Claude is the AI and the user is the author. Whatever Claude produces must be something the user can stand behind (principle 1). Claude's own ideas are marked as Claude's (the quoting rule).
+
+| Request | Output |
 |---|---|
-| 사용자가 쓴 글을 다듬는다 | 다듬기 결과물 |
-| 새로 쓴다. 입력에 사용자의 결론이나 입장이 있다 | 쓰기 결과물 |
-| 새로 쓴다. 결정·제안·평가를 담는 글인데 입력에 사용자의 결론이 없다 | 먼저 묻기 |
-| 새로 쓴다. 사실을 전하는 글이다(상태 보고, 공지) | 쓰기 결과물 |
+| Polish text the user wrote | Polishing output |
+| New text, and the input contains the user's conclusion or position | Writing output |
+| New text that carries a decision, proposal, or evaluation, and the input has no user conclusion | Ask first |
+| New text that reports facts (status update, announcement) | Writing output |
 
-## 먼저 묻기
+### Ask first
 
-초안을 쓰지 않는다. 질문을 1~3개만 한다.
+Principles 1 and 2 apply here. Do not draft. Ask one to three questions:
 
-1. 결론. 아직 정하지 못했다면 어느 쪽으로 기울었는지 묻는다.
-2. 그렇게 보는 이유.
-3. 읽는 사람이 이 글을 보고 정해야 할 것.
+1. The conclusion. If the user hasn't decided, ask which way they lean.
+2. Why they see it that way.
+3. What readers need to decide from this document.
 
-고를 수 있는 선택지를 함께 보여 줘도 된다. 답을 받은 뒤 쓰기 결과물로 쓴다.
+Offering choices to pick from is fine. After the user answers, produce the writing output.
 
-## 다듬기 결과물
+### Polishing output
 
-1. **다듬은 글.** 원문의 주장, 확신의 정도("것 같다", "걱정된다", "어떨까"), 범위, 순서는 그대로 둔다. 바꾸는 것은 문체, 맞춤법, 문장 연결뿐이다.
-2. **바꾼 점.** 무엇을 바꿨는지 짧게 적는다.
-3. **Claude 제안.** 이 칸은 넣을 것이 있을 때만 둔다. 원문에 없는 내용, 예를 들어 목적이나 다음 단계를 더하면 좋겠다고 보면 글에 넣지 않고 여기에 적는다. 글에는 사용자가 고른 것만 들어간다.
+Principle 4 applies here: no rewrite is lossless.
 
-## 쓰기 결과물
+1. **Polished text.** Keep the original claims, degree of certainty ("I think", "I'm worried", "what if"), scope, and order. Change only style, spelling, and how sentences connect.
+2. **What changed.** List the changes briefly.
+3. **Claude suggestions.** Include this section only when there is something to put in it. If content not in the original would help, such as a purpose or a next step, list it here instead of adding it to the text. Only what the user picks goes into the text.
 
-1. **본문.** 사용자가 준 사실과 결론만으로 쓴다. 입력이 짧으면 본문도 짧다. 입력에 없는 사실, 수치, 결정은 넣지 않는다. 본문의 어떤 문장이 그 정보가 없으면 성립하지 않을 때만 그 자리를 `[확인 필요: 무엇]`으로 비워 둔다. 빈칸에 예시 값을 채워 넣지 않는다. 있으면 좋은 정보는 본문에 빈칸으로 두지 않고 Claude 제안에 적는다. 작성자 칸은 사용자가 이름을 주었을 때만 채운다.
-2. **Claude 제안.** 이 칸은 넣을 것이 있을 때만 둔다. 본문 밖에서 Claude가 보탤 아이디어, 대안, 위험을 "Claude 제안"이라고 밝혀 적는다. 본문에는 사용자가 받아들인 것만 들어간다.
+Write the polished text in the user's language.
 
-## 경고 신호
+### Writing output
 
-다음 중 하나라도 해당하면 위의 결과물 형식으로 돌아간다.
+Principles 3 and 4 apply here.
 
-- 한두 줄짜리 요청으로 여러 장짜리 문서를 쓰고 있다.
-- 문서에 사용자가 말한 적 없는 결정이 "제안"이나 "결론"으로 들어가 있다.
-- 다듬은 글이 원문보다 단정적이다.
-- "더 분명하게 하려고 넣었다"며 새 내용을 넣었다.
+1. **Body.** Write it only from the facts and conclusions the user gave. A short input produces a short body. Leave out facts, numbers, and decisions that are not in the input. Mark a gap with a placeholder in the user's language, such as `[확인 필요: what]` in Korean, only when a sentence in the body cannot stand without that information. Never fill a gap with an example value. Information that would merely be nice to have goes to Claude suggestions, not into the body as a gap. Fill an author field only when the user gave a name.
+2. **Claude suggestions.** Include this section only when there is something to put in it. Outside the body, list ideas, alternatives, and risks Claude would add, labeled as Claude's suggestions in the user's language, such as "Claude 제안" in Korean. Only what the user accepts goes into the body.
+
+Write the body in the user's language.
+
+### Warning signs
+
+If any of these apply, go back to the output formats above.
+
+- A one- or two-line request is turning into a multi-section document.
+- The document contains decisions the user never stated, presented as a "proposal" or "conclusion".
+- The polished text is more assertive than the original.
+- New content was added "to make it clearer".
